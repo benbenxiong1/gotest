@@ -25,6 +25,8 @@ func main() {
 	// new一个gin engine 实例
 	r := gin.New()
 
+	bootstrap.SetupDB()
+
 	bootstrap.SetupRoute(r)
 
 	// 运行服务 默认为8080
