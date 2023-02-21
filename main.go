@@ -31,8 +31,13 @@ func main() {
 	// new一个gin engine 实例
 	r := gin.New()
 
+	// 初始化数据库连接
 	bootstrap.SetupDB()
 
+	// 初始化redis
+	bootstrap.SetupRedis()
+
+	// 初始化路由
 	bootstrap.SetupRoute(r)
 
 	// 运行服务 默认为8080

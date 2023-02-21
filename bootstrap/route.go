@@ -22,7 +22,7 @@ func SetupRoute(e *gin.Engine) {
 }
 
 func registerGlobalMiddleWare(e *gin.Engine) {
-	e.Use(middlewares.Logger(), gin.Recovery())
+	e.Use(middlewares.Logger(), middlewares.Recovery())
 }
 
 func setup404Handler(e *gin.Engine) {
