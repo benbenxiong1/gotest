@@ -3,6 +3,7 @@ package bootstrap
 
 import (
 	"github.com/gin-gonic/gin"
+	"gotest/app/http/middlewares"
 	"gotest/routes"
 	"net/http"
 	"strings"
@@ -12,16 +13,16 @@ func SetupRoute(e *gin.Engine) {
 	// 注册全局中间件
 	registerGlobalMiddleWare(e)
 
-	//注册api路由
+	// 注册api路由
 	routes.RegisterAPIRoutes(e)
 
-	//注册404
+	// 注册404
 	setup404Handler(e)
 
 }
 
 func registerGlobalMiddleWare(e *gin.Engine) {
-	e.Use(gin.Logger(), gin.Recovery())
+	e.Use(middlewares.Logger(), gin.Recovery())
 }
 
 func setup404Handler(e *gin.Engine) {
